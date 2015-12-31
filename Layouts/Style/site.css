@@ -1,0 +1,156 @@
+/* ------------------
+    General setting
+--------------------*/
+
+*{
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 300;
+}
+html{
+    height: 100%;
+}
+.container-fluid{
+	background-color : white;
+}
+#mainbody{
+	height: 80%;
+	width: auto;
+	background-color: white;
+	text-align: justify;
+	padding-bottom: 40px;
+	background-color : white;
+}
+
+canvas {
+  max-width: 100%;
+  background-color: white;
+}
+#content-area{
+	margin-top: 180px;
+	margin-bottom: 180px;
+	font-family: "fantasy";
+}
+
+#wrapper{
+	
+	
+}
+h1, h2, h3, h4, h5, h6{
+    /* color: #f6f7f9; */
+    font-weight: 600;
+}
+
+h1{
+	font-size: 60px;
+	color: #0099FF;
+	text-shadow: 0px 1px 0px #888888 ;
+}
+
+p, ul, ol, pre, table, blockquote {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+hr {
+    border: 1px solid;
+    margin: -1px 0;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+b, strong, em, small, code {
+    line-height: 1;
+}
+sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+}
+sub {
+    top: 0.4em;
+}
+
+p{
+    font-weight: 300;
+    color: #373b3e;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.error{
+    border-color: red !important;
+}
+.title{
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    color: #000000;
+    line-height: 28px;
+    margin: 25px 10px 55px 10px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #373b3e;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #373b3e;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #373b3e;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #373b3e;
+}
+
+/*-----------------------------
+  --- TOP NAVIGATION CSS ----*/
+
+#navigation{
+	height: 50px;
+    text-shadow: 0 .1em 0.1em #333;	
+	/* margin-bottom: 5px; */
+}
+.navbar{
+	margin: 0px;
+	margin-top: 15px;
+	/* box-shadow: 0px 10px 0px #888888; */
+	border: 0px;
+	background-color: #ffa100;
+}
+#nav ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 40%;
+	overflow: hidden;
+    display: none;
+}
+
+#nav li
+{
+	list-style-type: none;
+    font-size: 20px;
+	text-align: center;
+    float: right;
+    position: relative;
+}
+
+/*------------------
+--- Footer Design ----*/
+
+#footer{
+	height:10%;
+	width: auto;
+	margin-top: 5px;
+	/* margin-left: 1px;  */
+	background-color:#ffa100;
+	/* border-top: 1px solid gray; */
+}
+#footer p{
+	margin-left: 80px; 
+}
