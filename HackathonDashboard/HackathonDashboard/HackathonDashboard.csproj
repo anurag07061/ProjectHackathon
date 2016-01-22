@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -138,6 +138,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API\MembersController.cs" />
+    <Compile Include="Controllers\API\TeamsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -145,6 +147,10 @@
     <Compile Include="Migrations\201601051155309_Database Initialization.cs" />
     <Compile Include="Migrations\201601051155309_Database Initialization.Designer.cs">
       <DependentUpon>201601051155309_Database Initialization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601070602583_Cascade on delete set false.cs" />
+    <Compile Include="Migrations\201601070602583_Cascade on delete set false.Designer.cs">
+      <DependentUpon>201601070602583_Cascade on delete set false.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\HackathonDashboardContext.cs" />
@@ -164,6 +170,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\AngularJs\angular-animate.min.js" />
+    <Content Include="Scripts\AngularJs\angular-resource.min.js" />
+    <Content Include="Scripts\AngularJs\angular-ui-router.min.js" />
+    <Content Include="Scripts\AngularJs\angular.min.js" />
+    <Content Include="Scripts\AngularJs\angular-ui-bootstrap-modal.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\apps\controllers\TrickerCrtl.js" />
+    <Content Include="Scripts\apps\services\DataFetchService.js" />
+    <Content Include="Scripts\apps\views\main-home.html" />
+    <Content Include="Scripts\apps\views\team-detail.html" />
+    <Content Include="Scripts\apps\views\team-list.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -207,6 +224,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601051155309_Database Initialization.resx">
       <DependentUpon>201601051155309_Database Initialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601070602583_Cascade on delete set false.resx">
+      <DependentUpon>201601070602583_Cascade on delete set false.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
