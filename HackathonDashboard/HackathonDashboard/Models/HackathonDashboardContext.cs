@@ -29,14 +29,14 @@ namespace HackathonDashboard.Models
             // Configure TeamId as FK for Projects
             modelBuilder.Entity<Project>().HasRequired(p => p.Team).WithOptional(x=>x.Project);
 
-            modelBuilder.Entity<Member>().HasRequired<Team>(t => t.Team).WithMany(t => t.Members).HasForeignKey(t => t.TeamId);
-                        //.WillCascadeOnDelete(false);
+            modelBuilder.Entity<Member>().HasRequired<Team>(t => t.Team).WithMany(t => t.Members).HasForeignKey(t => t.TeamId)
+                        .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Milestone>().HasRequired<Team>(t => t.Team).WithMany(t => t.Milestones).HasForeignKey(t => t.TeamId);
-                        //.WillCascadeOnDelete(false);
+            modelBuilder.Entity<Milestone>().HasRequired<Team>(t => t.Team).WithMany(t => t.Milestones).HasForeignKey(t => t.TeamId)
+                        .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Comment>().HasRequired<Post>(c => c.Post).WithMany(c => c.Comments).HasForeignKey(c => c.PostId);
-                        //.WillCascadeOnDelete(false);
+            modelBuilder.Entity<Comment>().HasRequired<Post>(c => c.Post).WithMany(c => c.Comments).HasForeignKey(c => c.PostId)
+                        .WillCascadeOnDelete(false);
         }
 
     }
