@@ -28,6 +28,7 @@ namespace HackathonDashboard.Controllers.API
 
         // GET: api/Teams/5
         [ResponseType(typeof(Team))]
+        [Route("api/getTeam/{id}")]
         public IHttpActionResult GetTeam(string id)
         {
             Team team = db.Teams.Find(id);
@@ -133,5 +134,38 @@ namespace HackathonDashboard.Controllers.API
         {
             return db.Teams.Count(e => e.TeamId == id) > 0;
         }
+
+
+        //[Route("api/editTeamMilestone/{teamId}/{milestone}")]
+        //[ResponseType(typeof(void))]
+        //[HttpPut]
+        //public IHttpActionResult EditTeamMilestone(string teamId, Milestone milestone)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    //db.Entry(team).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        db.Teams.Where(t => t.TeamId == teamId).Select(x => x.Milestones).ToList().Where(a=>a.)
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!TeamExists(teamId))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
     }
 }

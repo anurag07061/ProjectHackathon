@@ -11,7 +11,7 @@ namespace HackathonDashboard.Models
     {
         public Milestone()
         {
-            this.Status = "0%";
+            this.Status = "Initial";
         }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MilestoneId { get; set; }
