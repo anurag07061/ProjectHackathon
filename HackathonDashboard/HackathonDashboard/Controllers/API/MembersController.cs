@@ -12,6 +12,7 @@ using HackathonDashboard.Models;
 
 namespace HackathonDashboard.Controllers.API
 {
+    [Authorize]
     public class MembersController : ApiController
     {
         private HackathonDashboardContext db = new HackathonDashboardContext();
@@ -23,17 +24,18 @@ namespace HackathonDashboard.Controllers.API
         }
 
         // GET: api/Members/5
-        //[ResponseType(typeof(Member))]
-        //public IHttpActionResult GetMember(string id)
-        //{
-        //    Member member = db.Members.Find(id);
-        //    if (member == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [ResponseType(typeof(Member))]
+        [Route("api/getMember/{id}")]
+        public IHttpActionResult GetMember(string id)
+        {
+            Member member = db.Members.Find(id);
+            if (member == null)
+            {
+                return NotFound();
+            }
 
-        //    return Ok(member);
-        //}
+            return Ok(member);
+        }
 
         // PUT: api/Members/5
         //[ResponseType(typeof(void))]

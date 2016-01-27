@@ -12,6 +12,6 @@ namespace HackathonDashboard.Models
         public string MemberEmail { get; set; }
         public string TeamId { get; set; }
 
-        public virtual Team Team { get; set; }
+        public Team Team { get; set; }
     }
 }

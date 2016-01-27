@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\API\MembersController.cs" />
+    <Compile Include="Controllers\API\MilestonesController.cs" />
     <Compile Include="Controllers\API\TeamsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +177,7 @@
     <Content Include="Scripts\AngularJs\angular.min.js" />
     <Content Include="Scripts\AngularJs\angular-ui-bootstrap-modal.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\apps\controllers\TeamCrtl.js" />
     <Content Include="Scripts\apps\controllers\TrickerCrtl.js" />
     <Content Include="Scripts\apps\services\DataFetchService.js" />
     <Content Include="Scripts\apps\views\main-home.html" />
