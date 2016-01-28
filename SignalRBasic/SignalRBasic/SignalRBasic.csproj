@@ -85,6 +85,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\codropsicons\codropsicons.eot" />
+    <Content Include="fonts\codropsicons\codropsicons.ttf" />
+    <Content Include="fonts\codropsicons\codropsicons.woff" />
+    <Content Include="fonts\font-awesome-4.2.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome-4.2.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome-4.2.0\fonts\fontawesome-webfont.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -93,13 +99,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\codropsicons\codropsicons.svg" />
+    <Content Include="fonts\codropsicons\license.txt" />
+    <Content Include="fonts\font-awesome-4.2.0\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome-4.2.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="img\related\MinimalForm.png" />
+    <Content Include="img\related\SelectInspiration.png" />
+    <Content Include="img\search.svg" />
     <Content Include="Index.html" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Style\demo.css" />
+    <Content Include="Style\normalize.css" />
+    <Content Include="Style\set1.css" />
+    <Content Include="Style\set2.css" />
+    <Content Include="Style\statusBody.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
