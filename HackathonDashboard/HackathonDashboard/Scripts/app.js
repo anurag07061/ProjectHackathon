@@ -1,6 +1,14 @@
 ﻿
 var routerApp = angular.module('routerApp', ['ui.router']);
 
+routerApp.run(function ($rootScope, $templateCache) {
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+        if (typeof (current) !== 'undefined') {
+            $templateCache.remove(current.templateUrl);
+        }
+    });
+});
+
 routerApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(true);
 

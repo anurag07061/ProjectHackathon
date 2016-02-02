@@ -74,6 +74,7 @@ namespace HackathonDashboard.Controllers.API
 
         // POST: api/Milestones
         [ResponseType(typeof(Milestone))]
+        [Route("api/postMilestone")]
         public IHttpActionResult PostMilestone(Milestone milestone)
         {
             if (!ModelState.IsValid)
@@ -84,7 +85,8 @@ namespace HackathonDashboard.Controllers.API
             db.Milestones.Add(milestone);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = milestone.MilestoneId }, milestone);
+            //return CreatedAtRoute("DefaultApi", new { id = milestone.MilestoneId }, milestone);
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // DELETE: api/Milestones/5

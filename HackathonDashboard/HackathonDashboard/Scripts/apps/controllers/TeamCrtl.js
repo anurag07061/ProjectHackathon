@@ -5,17 +5,21 @@
     teamCrtl.$inject = ['$scope', '$http'];
 
     function teamCrtl($scope, $http) {
+        $scope.options = ['Started', 'In Progress', 'Done'];
+        $scope.milestoneStatus = $scope.options[0];
         $scope.hideform = true;
         $scope.edit = true;
         $scope.updateMessage = false;
         var newMilestone = {};
+        var team = '';
         $scope.milestone ='';
 
         function onDataFetchComplete(response) {
             $scope.memberDetail = response.data;
             
             var teamId = response.data.TeamId;
-            console.log('member detail: ', teamId);
+            team = response.data;
+            //console.log('member detail: ', teamId);
             $http.get('/api/getTeam/'+teamId)
                 .then(onTeamDetailComplete, onTeamDetailError);
             
@@ -23,7 +27,7 @@
 
         function onTeamDetailComplete(res){
             $scope.teamDetail = res.data;
-            console.log('team detail: ', $scope.teamDetail);
+            //console.log('team detail: ', $scope.teamDetail);
         }
 
         function onTeamDetailError(reason) {
@@ -38,6 +42,8 @@
             $scope.hideform = true;
             $scope.updateMessage = true;
             $scope.message = "Updated Successfully";
+            $http.get('/api/getMember/M01')
+             .then(onDataFetchComplete, onDataFetchError);
         }
         function onFailureToUpdate() {
             $scope.message = "Something is wrong";
@@ -46,7 +52,7 @@
         $http.get('/api/getMember/M01')
              .then(onDataFetchComplete, onDataFetchError);
 
-        $scope.editMilestone = function (milestone, teamId) {
+        $scope.editMilestone = function (milestone, teamDetail) {
             $scope.hideform = false;
             $scope.edit = false;
             $scope.updateMessage = false;
@@ -55,20 +61,36 @@
             $scope.milestone = milestone;
         };
         $scope.createNewMilestone = function () {
+            $scope.updateMessage = false;
             $scope.hideform = false;
             $scope.edit = true;
             $scope.milestoneDesc = '';
-            $scope.milestoneStatus = '';
+            //$scope.milestoneStatus = '';
         }
 
         $scope.saveMilestoneStatus = function () {
-            newMilestone = $scope.milestone;
-            newMilestone.Status = $scope.milestoneStatus;
+            if ($scope.edit == true) {
+                newMilestone.MilestoneDescription = $scope.milestoneDesc;
+                newMilestone.Status = $scope.milestoneStatus;
+                newMilestone.TeamId = team.TeamId;
 
-            $http.put('/api/editMilestone/' + newMilestone.MilestoneId, newMilestone)
+                $http.post('/api/postMilestone/', newMilestone)
                     .then(onSuccessfullUpdate, onFailureToUpdate);
+            }
+            else {
+                newMilestone = $scope.milestone;
+                newMilestone.Status = $scope.milestoneStatus;
+
+                $http.put('/api/editMilestone/' + newMilestone.MilestoneId, newMilestone)
+                        .then(onSuccessfullUpdate, onFailureToUpdate);
+            }
+            
 
         };
+
+        $scope.closeUpdateMsg = function(){
+            $scope.updateMessage = false;
+        }
 
         $scope.closeForm = function () {
             $scope.hideform = true;
