@@ -9,10 +9,14 @@
         $scope.milestoneStatus = $scope.options[0];
         $scope.hideform = true;
         $scope.edit = true;
+        $scope.milestone = '';
         $scope.updateMessage = false;
+
         var newMilestone = {};
         var team = '';
-        $scope.milestone ='';
+        var userId = '';
+
+       
 
         function onDataFetchComplete(response) {
             $scope.memberDetail = response.data;
@@ -42,15 +46,22 @@
             $scope.hideform = true;
             $scope.updateMessage = true;
             $scope.message = "Updated Successfully";
-            $http.get('/api/getMember/M01')
+            $http.get('/api/getMember/' + userId)
              .then(onDataFetchComplete, onDataFetchError);
         }
         function onFailureToUpdate() {
             $scope.message = "Something is wrong";
         }
 
-        $http.get('/api/getMember/M01')
-             .then(onDataFetchComplete, onDataFetchError);
+        $http.get('/api/getCurrentUser')
+             .then(function (result) {
+                 userId = result.data.MemberId;
+                 console.log(userId);
+                 $http.get('/api/getMember/' + userId)
+                    .then(onDataFetchComplete, onDataFetchError);
+             },onTeamDetailError);
+
+        
 
         $scope.editMilestone = function (milestone, teamDetail) {
             $scope.hideform = false;

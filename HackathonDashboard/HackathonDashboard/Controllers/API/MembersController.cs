@@ -37,6 +37,23 @@ namespace HackathonDashboard.Controllers.API
             return Ok(member);
         }
 
+        // GET: api/Members/emailID
+        [ResponseType(typeof(Member))]
+        [Route("api/getCurrentUser")]
+        public IHttpActionResult GetMemberByEmail()
+        {
+            var index = User.Identity.Name.LastIndexOf('\\');
+            var emailId = User.Identity.Name.Substring(index+1)+"@bd.imshealth.com";
+
+            Member member = db.Members.Where(x=>x.MemberEmail.Equals(emailId,StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            if (member == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(member);
+        }
+
         // PUT: api/Members/5
         //[ResponseType(typeof(void))]
         //public IHttpActionResult PutMember(string id, Member member)
