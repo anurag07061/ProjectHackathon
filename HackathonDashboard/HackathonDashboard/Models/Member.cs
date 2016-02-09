@@ -11,7 +11,11 @@ namespace HackathonDashboard.Models
         public string MemberName { get; set; }
         public string MemberEmail { get; set; }
         public string TeamId { get; set; }
-
         public Team Team { get; set; }
+
+        public Member()
+        {
+            TeamId = "1";
+        }
     }
 }

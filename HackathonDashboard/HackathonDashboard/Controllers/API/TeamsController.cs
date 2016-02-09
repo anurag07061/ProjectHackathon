@@ -22,7 +22,7 @@ namespace HackathonDashboard.Controllers.API
         //[HttpGet]
         public List<Team> GetTeams()
         {
-            var data = db.Teams.Select(t=>t).ToList();
+            var data = db.Teams.Select(t => t).ToList();
             return data;
         }
 
@@ -31,7 +31,16 @@ namespace HackathonDashboard.Controllers.API
         [Route("api/getTeam/{id}")]
         public IHttpActionResult GetTeam(string id)
         {
-            Team team = db.Teams.Find(id);
+            Team temp = db.Teams.Find(id);
+            var members = temp.Members.OrderBy(x => x.MemberName).ToList();
+            Team team = new Team
+            {
+                Members = members,
+                TeamId = temp.TeamId,
+                TeamName = temp.TeamName,
+                TeamLeaderName = temp.TeamLeaderName,
+                Milestones = temp.Milestones
+            };
             if (team == null)
             {
                 return NotFound();

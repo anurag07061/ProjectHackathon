@@ -1,6 +1,14 @@
 ﻿
 var routerApp = angular.module('routerApp', ['ui.router']);
 
+routerApp.run(function ($rootScope, $templateCache) {
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+        if (typeof (current) !== 'undefined') {
+            $templateCache.remove(current.templateUrl);
+        }
+    });
+});
+
 routerApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(true);
 
@@ -14,7 +22,7 @@ routerApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider
                         templateUrl: 'Scripts/apps/views/main-home.html'
                     },
                     'tricker-details@home': {
-                        template: 'Status part will be added here'
+                        templateUrl: 'Views/Home/Status.cshtml'
                     },
                     'trickers@home': {
                         templateUrl: 'Scripts/apps/views/team-list.html',
