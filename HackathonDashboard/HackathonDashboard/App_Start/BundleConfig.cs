@@ -27,16 +27,19 @@ namespace HackathonDashboard
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/signalR").Include(
+                "~/Scripts/jquery.signalR-2.2.0.js"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/AngularJs/angular.min.js",
                 "~/Scripts/AngularJs/angular-ui-router.min.js",
                 "~/Scripts/AngularJs/angular-resource.min.js",
                 "~/Scripts/AngularJs/angular-animate.min.js",
-                //"~/Scripts/AngularJs/angular-ui-bootstrap-modal.js",
                 "~/Scripts/app.js",
                 "~/Scripts/apps/controllers/*.js",
                 "~/Scripts/apps/services/*.js"
-                ));
+                )); 
         }
     }
 }

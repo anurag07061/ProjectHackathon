@@ -22,7 +22,7 @@ routerApp.config(function ($locationProvider, $stateProvider, $urlRouterProvider
                         templateUrl: 'Scripts/apps/views/main-home.html'
                     },
                     'tricker-details@home': {
-                        template: 'Status part will be added here'
+                        templateUrl: 'Scripts/apps/views/status.html'
                     },
                     'trickers@home': {
                         templateUrl: 'Scripts/apps/views/team-list.html',
