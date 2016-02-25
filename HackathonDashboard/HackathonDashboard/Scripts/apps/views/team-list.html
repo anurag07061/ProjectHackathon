@@ -2,16 +2,25 @@
 <table class="table table-hover table-striped table-bordered">
     <tbody>
         <tr ng-repeat="team in teamList" ng-click="getSingleTeamStatus(team)">
-            <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    {{ team.TeamName }}
-                </button></td>
+            <td style="width:50px;"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teamModal">
+                    {{ team.TeamName }} 
+                </button>
+            </td>
+            <td>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar"
+                         aria-valuemin="0" aria-valuemax="100" style="width:{{team.overallStatus}}%">
+                        {{team.overallStatus}}%
+                    </div>
+                </div>
+            </td>
         </tr>
 
     </tbody>
 </table>
 
 <!-- Modal -->
-<div id="myModal" class="modal" tabindex="-1" role="dialog">
+<div id="teamModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -30,7 +39,7 @@
                     <tbody>
                         <tr ng-repeat="team in teamMilestone.Milestones">
                             <td> {{ team.MilestoneDescription }} </td>
-                            <td> {{ team.Status }} </td>
+                            <td> {{ team.Status }}% </td>
                         </tr>
                     </tbody>
                 </table>

@@ -194,6 +194,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\slider.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -204,13 +205,18 @@
     <Content Include="Scripts\AngularJs\angular.min.js" />
     <Content Include="Scripts\AngularJs\angular-ui-bootstrap-modal.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\apps\controllers\PostCrtl.js" />
     <Content Include="Scripts\apps\controllers\TeamCrtl.js" />
     <Content Include="Scripts\apps\controllers\TrickerCrtl.js" />
+    <Content Include="Scripts\apps\services\CurrentUserFactory.js" />
     <Content Include="Scripts\apps\services\DataFetchService.js" />
+    <Content Include="Scripts\apps\services\SharedProperties.js" />
+    <Content Include="Scripts\apps\services\SignalRService.js" />
     <Content Include="Scripts\apps\views\main-home.html" />
     <Content Include="Scripts\apps\views\status.html" />
     <Content Include="Scripts\apps\views\team-detail.html" />
     <Content Include="Scripts\apps\views\team-list.html" />
+    <Content Include="Scripts\bootstrap-slider.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

@@ -2,10 +2,10 @@
     
     app.controller('teamCrtl', teamCrtl);
 
-    teamCrtl.$inject = ['$scope', '$http'];
+    teamCrtl.$inject = ['$scope', '$http', 'CurrentUserFactory', 'SignalRService', '$rootScope', 'SharedProperties'];
 
-    function teamCrtl($scope, $http) {
-        $scope.options = ['Started', 'In Progress', 'Done'];
+    function teamCrtl($scope, $http, CurrentUserFactory, SignalRService, $rootScope, SharedProperties) {
+        $scope.options = ['0', '40', '100'];
         $scope.milestoneStatus = $scope.options[0];
         $scope.hideform = true;
         $scope.edit = true;
@@ -15,15 +15,17 @@
         var newMilestone = {};
         var team = '';
         var userId = '';
-
-       
+        var updatedMilestone = '';
+        var tempTeam = {};
+     
+        SignalRService.register();
 
         function onDataFetchComplete(response) {
             $scope.memberDetail = response.data;
             
             var teamId = response.data.TeamId;
             team = response.data;
-            //console.log('member detail: ', teamId);
+           // console.log('member detail: ', $scope.teamDetail);
             $http.get('/api/getTeam/'+teamId)
                 .then(onTeamDetailComplete, onTeamDetailError);
             
@@ -31,7 +33,8 @@
 
         function onTeamDetailComplete(res){
             $scope.teamDetail = res.data;
-            //console.log('team detail: ', $scope.teamDetail);
+            //console.log('team detail: ', $scope.teamDetail); /////////
+            SignalRService.sendUpdatedMilestone($scope.teamDetail);
         }
 
         function onTeamDetailError(reason) {
@@ -48,20 +51,18 @@
             $scope.message = "Updated Successfully";
             $http.get('/api/getMember/' + userId)
              .then(onDataFetchComplete, onDataFetchError);
+            //console.log('team detail: ', $scope.teamDetail);
         }
         function onFailureToUpdate() {
             $scope.message = "Something is wrong";
         }
-
-        $http.get('/api/getCurrentUser')
-             .then(function (result) {
-                 userId = result.data.MemberId;
-                 console.log(userId);
+       
+        //CurrentUserFactory.getCurrentUser()
+        //     .then(function (data) {
+                 userId = user.MemberId;
                  $http.get('/api/getMember/' + userId)
                     .then(onDataFetchComplete, onDataFetchError);
-             },onTeamDetailError);
-
-        
+             //},onTeamDetailError);      
 
         $scope.editMilestone = function (milestone, teamDetail) {
             $scope.hideform = false;
@@ -83,20 +84,18 @@
             if ($scope.edit == true) {
                 newMilestone.MilestoneDescription = $scope.milestoneDesc;
                 newMilestone.Status = $scope.milestoneStatus;
-                newMilestone.TeamId = team.TeamId;
-
+                newMilestone.TeamId = team.TeamId;                
                 $http.post('/api/postMilestone/', newMilestone)
                     .then(onSuccessfullUpdate, onFailureToUpdate);
+                
             }
             else {
                 newMilestone = $scope.milestone;
                 newMilestone.Status = $scope.milestoneStatus;
-
+                
                 $http.put('/api/editMilestone/' + newMilestone.MilestoneId, newMilestone)
                         .then(onSuccessfullUpdate, onFailureToUpdate);
-            }
-            
-
+            }           
         };
 
         $scope.closeUpdateMsg = function(){
@@ -107,6 +106,8 @@
             $scope.hideform = true;
 
         };
+        
+
     }
 
 })(angular.module('routerApp'));

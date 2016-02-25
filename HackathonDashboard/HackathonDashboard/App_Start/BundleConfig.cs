@@ -21,11 +21,13 @@ namespace HackathonDashboard
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap-slider.js", 
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/slider.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/signalR").Include(
                 "~/Scripts/jquery.signalR-2.2.0.js"
@@ -37,8 +39,9 @@ namespace HackathonDashboard
                 "~/Scripts/AngularJs/angular-resource.min.js",
                 "~/Scripts/AngularJs/angular-animate.min.js",
                 "~/Scripts/app.js",
-                "~/Scripts/apps/controllers/*.js",
-                "~/Scripts/apps/services/*.js"
+                "~/Scripts/apps/services/*.js",
+                "~/Scripts/apps/controllers/*.js"
+
                 )); 
         }
     }

@@ -64,6 +64,7 @@
                 <div class="col-md-6">
                     <!--<input type="text" ng-model="milestoneStatus" placeholder="Status">-->
                     <select ng-model="milestoneStatus" ng-options="option for option in options"></select>
+                    <!--<input class="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="5" data-slider-value="{{milestoneStatus}}" />-->
                 </div>
             </div>
             <hr>
@@ -75,7 +76,9 @@
             </button>
         </form>
     </div>
+    
 </div>
+<button onclick="ttt()">sdsdsdds</button>
 <div ng-show="updateMessage" class="row" style="padding-top:15px;">
     <div class="col-md-12">
         <div class="alert alert-success">
@@ -86,3 +89,13 @@
 </div>
 
 
+<script>
+    var t;
+    function ttt() {
+        alert(t);
+    }
+    $('.ex1').slider('getValue')
+        .on('slide', function (slideEvt) {
+        t = slideEvt.value;
+    });
+</script>
