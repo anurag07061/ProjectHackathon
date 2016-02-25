@@ -102,7 +102,7 @@
                         {{ milestone.MilestoneDescription }}
                     </td>
                     <td>
-                        {{ milestone.Status }}
+                        {{ milestone.Status }}%
                     </td>
                     <td>
                         <button class="btn" ng-click="editMilestone(milestone,teamDetail)">
@@ -128,14 +128,13 @@
                 <label class="col-md-4 control-label">Status:</label>
                 <div class="col-md-6">
                     <!--<input type="text" ng-model="milestoneStatus" placeholder="Status">-->
-                    <!--<select ng-model="milestoneStatus" ng-options="option for option in options"></select>-->
-                    <!--<input class="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="5" data-slider-value="{{milestoneStatus}}" />-->
-                    <div class="progress-box">
+                    <!--<select ng-model="milestoneStatus" ng-options="option for option in options"></select>-->                    
+                    <div class="m-progress-box">
                         <div class="percentage-cur">
                             <span class="num">{{ milestoneStatus }}%</span>
                         </div>
-                        <div class="progress-bar progress-bar-slider">
-                            <input class="progress-slider" type="range" min="0" max="100" ng-model="milestoneStatus">
+                        <div class="m-progress-bar m-progress-bar-slider">
+                            <input class="m-progress-slider" type="range" min="0" max="100" ng-model="milestoneStatus">
                             <div class="inner" ng-style="{ width: milestoneStatus + '%' }"></div>
                         </div>
                     </div>
