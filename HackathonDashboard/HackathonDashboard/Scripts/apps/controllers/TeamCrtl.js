@@ -2,11 +2,11 @@
     
     app.controller('teamCrtl', teamCrtl);
 
-    teamCrtl.$inject = ['$scope', '$http', 'CurrentUserFactory', 'SignalRService', '$rootScope', 'SharedProperties'];
+    teamCrtl.$inject = ['$scope', '$http', 'CurrentUserFactory', 'SignalRService', '$rootScope'];
 
-    function teamCrtl($scope, $http, CurrentUserFactory, SignalRService, $rootScope, SharedProperties) {
+    function teamCrtl($scope, $http, CurrentUserFactory, SignalRService, $rootScope ) {
         $scope.options = ['0', '40', '100'];
-        $scope.milestoneStatus = $scope.options[0];
+        $scope.milestoneStatus = 0;
         $scope.hideform = true;
         $scope.edit = true;
         $scope.milestone = '';
@@ -70,6 +70,7 @@
             $scope.updateMessage = false;
             $scope.milestoneDesc = milestone.MilestoneDescription;
             $scope.milestoneStatus = milestone.Status;
+            $scope.selectedRange = milestone.Status;
             $scope.milestone = milestone;
         };
         $scope.createNewMilestone = function () {
