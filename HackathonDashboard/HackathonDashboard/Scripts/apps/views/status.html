@@ -1,0 +1,54 @@
+﻿
+<script src="/Scripts/classie.js"></script>
+
+<div class="row">
+    <div id="header">
+        <!--<input type="text" id="message"/>
+        <input type="button" id="sendmessage" value="Send"/>-->
+        <span class="input input--juro">
+            <input class="input__field input__field--juro" type="text" id="message" ng-model="message"/>
+            <label class="input__label input__label--juro" for="input-28">
+                <!--<span class="input__label-content input__label-content--juro">Write Something..</span>-->
+            </label>
+        </span>
+        <input type="button" id="sendmessage" value="Send" ng-click="greeting()" ng-hide="!message.length"/>
+        <input type="hidden" id="displayname" />
+    </div>
+    <div id="body">
+        <div id="discussion"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //$(function () {
+
+    //    // Declare a proxy to reference the hub.
+    //    var chat = $.connection.chatHub;
+    //    console.log($.connection.hub);
+    //    // Create a function that the hub can call to broadcast messages.
+    //    chat.client.broadcastMessage = function(name, message) {
+    //        // Html encode display name and message.
+    //        var encodedName = $('<div />').text(name).html();
+    //        var encodedMsg = $('<div />').text(message).html();
+    //        // Add the message to the page.
+    //        //$('#discussion').append('<div id="postDiv"><strong>' + encodedName
+    //        //    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</div>');
+    //        //document.getElementById("userName").innerHTML = encodedName + " says, ";
+    //        //document.getElementById("statusBody").innerHTML = encodedMsg;
+    //        $('#discussion').prepend("<div class='box6'><h1>" + encodedName + " says, </h1><p>" + encodedMsg + "</p><br /><div class='box6_corner_lf'></div> <div class='box6_corner_rt'></div></div>");
+    //    };
+    //    // Get the user name and store it to prepend to messages.
+    //    $('#displayname').val("Mithun");
+    //    // Set initial focus to message input box.
+    //    $('#message').focus();
+    //    // Start the connection.
+    //    $.connection.hub.start().done(function() {
+    //        $('#sendmessage').click(function() {
+    //            // Call the Send method on the hub.
+    //            chat.server.send($('#displayname').val(), $('#message').val());
+    //            // Clear text box and reset focus for next comment.
+    //            $('#message').val('').focus();
+    //        });
+    //    });
+    //});
+</script>

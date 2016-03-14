@@ -22,7 +22,7 @@ namespace HackathonDashboard.Controllers.API
         //[HttpGet]
         public List<Team> GetTeams()
         {
-            var data = db.Teams.Select(t => t).ToList();
+            var data = db.Teams.Where(x=>x.TeamId!="0").Select(t => t).ToList();
             return data;
         }
 

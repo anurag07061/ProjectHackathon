@@ -19,6 +19,6 @@ namespace HackathonDashboard.Models
         public string MilestoneDescription { get; set; }
         public string Status { get; set; }
 
-        public virtual Team Team { get; set; }
+        public Team Team { get; set; }
     }
 }
