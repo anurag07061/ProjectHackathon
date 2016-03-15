@@ -20,5 +20,13 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    //max-width: 280px;
+}
+
+.sidebar-nav-fixed {
+	width:20%;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
 }

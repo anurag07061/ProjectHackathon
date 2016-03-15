@@ -2,21 +2,49 @@
 <script src="/Scripts/classie.js"></script>
 
 <div class="row">
-    <div id="header">
-        <!--<input type="text" id="message"/>
-        <input type="button" id="sendmessage" value="Send"/>-->
-        <span class="input input--juro">
-            <input class="input__field input__field--juro" type="text" id="message" ng-model="message"/>
-            <label class="input__label input__label--juro" for="input-28">
-                <!--<span class="input__label-content input__label-content--juro">Write Something..</span>-->
-            </label>
-        </span>
-        <input type="button" id="sendmessage" value="Send" ng-click="greeting()" ng-hide="!message.length"/>
-        <input type="hidden" id="displayname" />
+ 
+    <div class="panel panel-default share clearfix-xs">
+        <div class="panel-heading panel-heading-gray title" id="statusBarHeading">
+            What´s new
+        </div>
+        <div class="panel-body" id="statusBox">
+            <textarea name="status" class="form-control share-text" rows="3" placeholder="Share your status..." id="message" ng-model="message"></textarea>
+        </div>
+        <div class="panel-footer share-buttons">
+            <!--<a href="#"><i class="fa fa-map-marker"></i></a>-->
+            <a href="#"><i class="fa fa-photo"></i></a>
+            <!--<a href="#"><i class="fa fa-video-camera"></i></a>-->
+            <button type="submit" class="btn btn-primary btn-xs pull-right display-none" href="#" id="statusBoxButton" ng-click="greeting()" ng-hide="!message.length">Post</button>
+        </div>
     </div>
-    <div id="body">
+
+    <!--<div id="body">
         <div id="discussion"></div>
+    </div>-->
+
+    <div class="profile-body">
+        <!--Timeline-->
+        <ul class="timeline-v2" id="postContainer">
+            <li id="postList">
+                <time class="cbp_tmtime" datetime=""><span>4/1/08</span> <span>January</span></time>
+                <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                <div class="cbp_tmlabel">
+                    <h2 id="postOwnerName">Post name</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-responsive" src="assets/img/job/high-rated-job-3.1.jpg" alt="">
+                            <div class="md-margin-bottom-20"></div>
+                        </div>
+                        <div class="col-md-8" id="discussion" style="color: black; font-size:16px;">
+                             //description   
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
     </div>
+
 </div>
 
 <script type="text/javascript">

@@ -35,7 +35,8 @@
 
        
         function updateMessage(name, message) {
-            $('#discussion').prepend("<div class='box6'><h1>" + name + " says, </h1><p>" + message + "</p><br /><div class='box6_corner_lf'></div> <div class='box6_corner_rt'></div></div>");
+            $('#postOwnerName').text(name);
+            $('#discussion').text(message);
             $('#message').val('').focus();
             $scope.message = '';
             $scope.$apply();

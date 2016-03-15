@@ -166,6 +166,7 @@
     <Compile Include="ChatHub.cs" />
     <Compile Include="Controllers\API\MembersController.cs" />
     <Compile Include="Controllers\API\MilestonesController.cs" />
+    <Compile Include="Controllers\API\PostsController.cs" />
     <Compile Include="Controllers\API\TeamsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,6 +195,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\all.css" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\headers\header1.html" />
@@ -307,6 +309,7 @@
     <Content Include="Content\img\clients\walmart.png" />
     <Content Include="Content\img\clients\walmart_grey.png" />
     <Content Include="Content\img\demo.jpg" />
+    <Content Include="Content\img\hackathonGraphic.png" />
     <Content Include="Content\img\icons\social\amazon.png" />
     <Content Include="Content\img\icons\social\behance.png" />
     <Content Include="Content\img\icons\social\blogger.png" />
