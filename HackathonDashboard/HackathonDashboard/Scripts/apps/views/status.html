@@ -24,19 +24,20 @@
 
     <div class="profile-body">
         <!--Timeline-->
-        <ul class="timeline-v2" id="postContainer">
-            <li id="postList">
-                <time class="cbp_tmtime" datetime=""><span>4/1/08</span> <span>January</span></time>
+        <ul class="timeline-v2" id="postContainer" ng-controller="postCrtl" ng-hide="!messages[0].message">
+            <li id="postList" ng-repeat="chat in messages">
+                <!--<time class="cbp_tmtime" datetime=""><span>4/1/08</span> <span>January</span></time>-->
+                <time class="cbp_tmtime" datetime=""><span>{{chat.date.getHours() + ":" + chat.date.getMinutes() + ":" + chat.date.getSeconds() }}</span> <span>{{chat.date.getDate() + "/" +chat.date.getMonths()+1 + "/" + chat.date.getFullYear()}}</span></time>
                 <i class="cbp_tmicon rounded-x hidden-xs"></i>
                 <div class="cbp_tmlabel">
-                    <h2 id="postOwnerName">Post name</h2>
+                    <h2 id="postOwnerName">{{chat.name}}</h2>
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="img-responsive" src="assets/img/job/high-rated-job-3.1.jpg" alt="">
+                            <img class="img-responsive" src="content/img/job/high-rated-job-3.1.jpg" alt="">
                             <div class="md-margin-bottom-20"></div>
                         </div>
                         <div class="col-md-8" id="discussion" style="color: black; font-size:16px;">
-                             //description   
+                            {{chat.message}}
                         </div>
                     </div>
                 </div>

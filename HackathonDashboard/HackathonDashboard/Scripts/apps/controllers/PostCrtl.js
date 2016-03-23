@@ -11,6 +11,8 @@
 
     function postCrtl($rootScope, $scope, $http, $, endpoint, hub, CurrentUserFactory, SignalRService) {
         $scope.userName = '';
+        $scope.message = '';
+        $scope.messages = [ ];
 
         SignalRService.register();
 
@@ -31,13 +33,22 @@
 
         $scope.greeting = function () {
             SignalRService.send($scope.userName, $scope.message)
+            //$scope.getDateTime = new Date();
         };
 
        
         function updateMessage(name, message) {
-            $('#postOwnerName').text(name);
-            $('#discussion').text(message);
-            $('#message').val('').focus();
+            //$('#postOwnerName').text(name);
+            //$('#discussion').text(message);
+            //$('#message').val('').focus();
+
+            //$scope.messages.push(newMessage);
+            $scope.messages.push({
+                "name": name,
+                "message": message,
+                "date" : new Date()
+            });
+
             $scope.message = '';
             $scope.$apply();
         };
